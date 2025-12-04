@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Jurados UCLA (v.01)</title>
+    <meta property="og:title" content="Sistema de Gestión de Jurados - UCLA (v.01)" />
+    <meta property="og:description" content="Sistema moderno para la gestión de jurados y evaluación de proyectos universitarios" />
+    <meta property="og:image" content="https://example.com/og-image.jpg" />
+    <meta property="og:url" content="https://example.com/sistema-gestion-jurados" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/png" href="./resources/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="styles.css?v251204-0300" />
+    
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <h1>Sistema de Gestión de Jurados</h1>
+            <p>Universidad Centroccidental Lisandro Alvarado (UCLA)</p>
+        </header>
+
+        <section id="principal" class="active">
+            <h3>Bienvenido al Sistema</h3>
+            <div class="nav-buttons">
+                <button id="principal_btJurado" class="btn-primary">
+                    Gestión de Jurados
+                </button>
+                <button id="principal_btPuntuacion" class="btn-secondary">
+                    Agregar Puntuación
+                </button>
+                <button id="principal_btReporte" class="btn-primary">
+                    Ver Reporte Final
+                </button>
+            </div>
+        </section>
+    <section id="jurado" class="active">
+        <h3>Gestión de Jurados</h3>
+        <h3><span id="jurado_lblOpcion"></span>Jurado</h3>
+          <div class="ficha">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="jurado_inNombre">Nombre del Jurado</label>
+                <input type="text" id="jurado_inNombre" placeholder="Ingrese el nombre completo">
+            </div>
+            <div class="form-group">
+                <label for="jurado_inCategoria">Categoría del Jurado</label>
+                <select id="jurado_inCategoria">
+                    <option value="" disabled selected>-- Seleccione una categoría --</option>
+                    <option value="Maestro">Maestro (20 puntos)</option>
+                    <option value="Autoridad">Autoridad (10 puntos)</option>
+                    <option value="Docente">Docente (10 puntos)</option>
+                    <option value="Invitado">Invitado (1 punto)</option>
+                </select>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <button id="jurado_btAgregar" class="btn-primary">Agregar Jurado</button>
+            <button id="jurado_btVolver" class="btn-secondary">Volver</button>
+        </div>
+        </div> <!-- Cierre de div.ficha -->
+        
+        <table style="margin-top: 2rem;">
+            <thead>
+                <tr>
+                    <th style="width: 200px;">Nombre</th>
+                    <th style="width: 150px;">Categoría</th>
+                    <th style="width: 150px;">Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="jurado_divJurado"></tbody>
+        </table>
+    </section>
+        <section id="puntuacion" class="active">
+        <h3>Agregar Puntuación</h3>
+        <div class="form-grid">
+         <div class="form-group">
+    <label for="puntuacion_inJurado">Jurado</label>
+    <select id="puntuacion_inJurado">
+        <option value="" disabled selected>-- Seleccione un Jurado --</option>
+    </select>
+</div>
+            <div class="form-group">
+                <label for="puntuacion_inEquipo">Equipo</label>
+                <select id="puntuacion_inEquipo">
+                    <option value="" disabled selected>-- Seleccione un Equipo --</option>
+                    <option value="TheGitGuardians">TheGitGuardians</option>
+    <option value="SigmaDev">SigmaDev</option>
+    <option value="ATLAS">ATLAS</option>
+    <option value="THE CODE RANGERS">THE CODE RANGERS</option>
+    <option value="Advanced One Logic">Advanced One Logic</option>
+    <option value="HyperLinkBlocked">HyperLinkBlocked</option>
+    <option value="Bug Busters">Bug Busters</option>
+    <option value="PowerSquad">PowerSquad</option>
+    <option value="CodeBreakers">CodeBreakers</option>
+    <option value="TeraNexus Core">TeraNexus Core</option>
+    <option value="Brothers of Matrix">Brothers of Matrix</option>
+    <option value="InitCode">InitCode</option>
+    <option value="SevenPixels&TwoBugs">SevenPixels&TwoBugs</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="puntuacion_inPuntuacionMax">Puntuación Máxima</label>
+                <input type="number" id="puntuacion_inPuntuacionMax" min="0" max="100" placeholder="0-100">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="puntuacion_inObservacion">Observación</label>
+            <textarea id="puntuacion_inObservacion" rows="3" placeholder="Observaciones adicionales sobre la puntuación"></textarea>
+        </div>
+        <div class="action-buttons">
+            <button id="puntuacion_btAgregar" class="btn-primary">Agregar Puntuación</button>
+        
+            <button id="puntuacion_btVolver" class="btn-secondary">Volver</button>
+        </div>
+                <!-- ✅ TABLA DE VALORACIONES -->
+        <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Valoraciones</h4>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+            <thead>
+                <tr>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; border-right: 1px solid #dee2e6; text-align: center; font-weight: 600; color: #ffffff; width: 80px;">ID Jurado</th>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; border-right: 1px solid #dee2e6; text-align: left; font-weight: 600; color: #ffffff;">Nombre Jurado</th>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; border-right: 1px solid #dee2e6; text-align: center; font-weight: 600; color: #ffffff; width: 80px;">ID Equipo</th>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; border-right: 1px solid #dee2e6; text-align: left; font-weight: 600; color: #ffffff;">Nombre Equipo</th>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; text-align: center; font-weight: 600; color: #ffffff; width: 100px;">Valoración</th>
+                    <th style="background-color: #2C3E50; padding: 12px 15px; border-bottom: 1px solid #dee2e6; text-align: left; font-weight: 600; color: #ffffff;">Observación</th>
+                </tr>
+            </thead>
+            <tbody id="puntuacion_tablaValoraciones">
+                <tr>
+                    <td colspan="5" style="text-align: center; color: #666; padding: 20px;">No hay valoraciones registradas</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="reporte">
+        <h3>Resultados Finales</h3>
+        <div class="info-card">
+            <h4>Clasificación de Equipos</h4>
+            <p>Los equipos se ordenan por puntaje final calculado con ponderación según la categoría del jurado.</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 100px;">ID Equipo</th>
+                    <th style="width: 200px;">Nombre Equipo</th>
+                    <th style="width: 300px;">Suma Ponderada</th>
+                    <th style="width: 150px;">Peso Total</th>
+                    <th style="width: 120px;">Puntaje Final</th>
+                </tr>
+            </thead>
+            <tbody id="reporte_tbody"></tbody>
+        </table>
+        <div>
+            <button id="reporte_btVolver" class="btn-secondary">Volver</button>
+        </div>
+    </section>
+    </div>
+    <script type="module">
+        // Usar versión JavaScript simple para evitar problemas de compilación
+
+        import Cl_index from "./dist/Cl_index.js";
+        new Cl_index()
+    </script>
+</body>
+
+</html>
